@@ -1,0 +1,322 @@
+﻿@model AfetEkrani.UI.Models.ViewModels.AfetDetayAdresViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Index", "AfetEkrani", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="container" style="background-color: lightblue;">
+        <br />
+
+        <div class="row form-group">
+            <div class="col-2">
+                <div>
+                    @Html.Label("Seri No")
+                </div>
+            </div>
+            <div class="col-2">
+                <div>
+                    @Html.EditorFor(model => model.Afet.SeriNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "a191f-ghsd67" } })
+                    @Html.ValidationMessageFor(model => model.Afet.SeriNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    @Html.Label("GLIDE No")
+                </div>
+            </div>
+            <div class="col-2">
+                <div>
+                    @Html.EditorFor(model => model.Afet.GlideNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "jndfdf34-jnds6" } })
+                    @Html.ValidationMessageFor(model => model.Afet.GlideNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                @Html.Label("Başlangıç Tarihi")
+            </div>
+            <div class="col-2">
+                @Html.EditorFor(model => model.Afet.BaslangicTarihi, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.Afet.BaslangicTarihi, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-2">
+                @Html.Label("Bitiş Tarihi")
+            </div>
+            <div class="col-2">
+                @Html.EditorFor(model => model.Afet.BitisTarihi, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.Afet.BitisTarihi, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-2">
+                @Html.Label("Süre(Gün)")
+            </div>
+            <div class="col-2">
+                @Html.ViewBag.Sure
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                @Html.Label("Afet Türü")
+            </div>
+            <div class="col-2">
+                <div>
+                    @Html.DropDownListFor(a => a.AfetTuru.AfetTuruId, (IEnumerable<SelectListItem>)ViewBag.AfetTurleri, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AfetTuru.AfetTuruId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-2">
+                @Html.LabelFor(model => model.Il.IlId, "İl:", htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-2">
+                <div>
+                    @Html.DropDownListFor(a => a.Il.IlId, (IEnumerable<SelectListItem>)ViewBag.Il, new { @class = "form-control", @id = "UstKategoriler" })
+                    @Html.ValidationMessageFor(model => model.Il.IlId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-2">
+                @Html.LabelFor(model => model.Ilce.IlceId, "İlce:", htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-2">
+                <div>
+                    @Html.DropDownListFor(a => a.Ilce.IlceId, Enumerable.Empty<SelectListItem>(), new { @class = "form-control", @id = "AltKategoriler" })
+                    @Html.ValidationMessageFor(model => model.Ilce.IlceId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                @Html.Label("Mahalle")
+            </div>
+            <div class="col-2">
+                <div>
+                    @Html.DropDownListFor(a => a.Mahalle.MahalleId, Enumerable.Empty<SelectListItem>(), new { @class = "form-control", @id = "AltKategoriler1" })
+                    @Html.ValidationMessageFor(model => model.Mahalle.MahalleId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-2">
+                @Html.Label("Belde")
+            </div>
+            <div class="col-2">
+                <div>
+                    @Html.DropDownListFor(a => a.Belde.BeldeId, Enumerable.Empty<SelectListItem>(), new { @class = "form-control", @id = "AltKategoriler2" })
+                    @Html.ValidationMessageFor(model => model.Belde.BeldeId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 form-group">
+                @Html.Label("Neden")
+            </div>
+            <div class="col-2 form-group">
+                @Html.EditorFor(model => model.Afet.Neden, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.Afet.Neden, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-2 form-group">
+                @Html.Label("Enlem")
+            </div>
+            <div class="col-2 form-group">
+                @Html.EditorFor(model => model.Afet.Enlem, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                @Html.ValidationMessageFor(model => model.Afet.Enlem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-2 form-group">
+                @Html.Label("Boylam")
+            </div>
+            <div class="col-2 form-group">
+                @Html.EditorFor(model => model.Afet.Boylam, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                @Html.ValidationMessageFor(model => model.Afet.Boylam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                @Html.Label("Neden Açıklama")
+            </div>
+            <div class="col-10">
+                @Html.EditorFor(model => model.Afet.Aciklama, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.Afet.Aciklama, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                @Html.Label("Etkilediği Alanlar")
+            </div>
+            <div class="col-10">
+                @Html.EditorFor(model => model.Afet.EtkiledigiAlanlar, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.Afet.EtkiledigiAlanlar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-2">
+                @Html.Label("Kaynak")
+            </div>
+            <div class="col-10">
+                @Html.EditorFor(model => model.Afet.Kaynak, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.Afet.Kaynak, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="row  form-group">
+            <div class="col-md-4">
+                <input type="file" name="dosyaYolu" id="dosyaYolu" />
+                @Html.ValidationMessageFor(model => model.Afet.DosyaYolu, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-2">
+                @Html.Label("Dosya Açıklaması")
+            </div>
+            <div class="form-group col-4">
+                @Html.TextBoxFor(a => a.Afet.DosyaAciklama, new { @class = "form-control", placeholder = "Açıklama" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-2">
+                @Html.LabelFor(model => model.Afet.OnayDurum, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-2">
+                Onaylandı
+                @Html.RadioButtonFor(model => model.Afet.OnayDurum, "Onaylandı")
+            </div>
+            <div class="col-2">
+                Onay Bekliyor
+                @Html.RadioButtonFor(model => model.Afet.OnayDurum, "OnayBekliyor")
+            </div>
+            <div class="col-2">
+                Yayında
+                @Html.RadioButtonFor(model => model.Afet.OnayDurum, "Yayında")
+            </div>
+            <div class="col-2">
+                Reddedildi
+                @Html.RadioButtonFor(model => model.Afet.OnayDurum, "Reddedildi")
+            </div>
+        </div>
+
+        <div style="padding-left:940px">
+            <button type="submit" class="form-group btn btn-info">Kaydet</button>
+            <button type="reset" class="form-group btn btn-info">İptal</button>
+        </div>
+    </div>
+
+    if (ViewBag.Hata != null)
+    {
+        <p class="form-control" style="background-color:red; color:white;">@ViewBag.Hata</p>
+    }
+    else
+    {
+        <p class="form-control"></p>
+    }
+}
+
+@section scripts{
+
+    @* Seçilen il id'sine göre ilçe getirme *@
+    <script>
+        $("#UstKategoriler").change(function () {
+        debugger;
+                    var sehir = $(this);
+                    var countryId = sehir.val();
+            if (countryId != "") {
+
+                $.ajax({
+                    method: "POST",
+                    url: '@Url.Action("IleGoreIlceGetir", "AfetEkrani")' + '/' + countryId,
+                    beforeSend: function () {
+                        $("#AltKategoriler option").not(":first").remove();
+                    }
+                }).done(function (result) {
+                    console.log(result);
+                    for (var i = 0; i < result.length; i++) {
+                        var city = result[i];
+                        var opt = $("<option></option>");
+                        opt.val(city.IlceId);
+                        opt.text(city.IlceAdi);
+                        $("#AltKategoriler").append(opt);
+                    }
+                });
+                    } else {
+                        $("#AltKategoriler option").not(":first").remove();
+                    }
+                });
+    </script>
+
+
+    @*//MAHALLE Getirme*@
+
+
+    <script>
+        $("#AltKategoriler").change(function () {
+        debugger;
+                    var sehir = $(this);
+                    var countryId = sehir.val();
+            if (countryId != "") {
+
+                $.ajax({
+                    method: "POST",
+                    url: '@Url.Action("IlceyeGoreMahalleGetir", "AfetEkrani")' + '/' + countryId,
+                    beforeSend: function () {
+                        $("#AltKategoriler1 option").not(":first").remove();
+                    }
+                }).done(function (result) {
+                    console.log(result);
+                    for (var i = 0; i < result.length; i++) {
+                        var city = result[i];
+                        var opt = $("<option></option>");
+                        opt.val(city.MahalleId);
+                        opt.text(city.MahalleAdi);
+                        $("#AltKategoriler1").append(opt);
+                    }
+                });
+            } else {
+                        $("#AltKategoriler1 option").not(":first").remove();
+                   }
+            });
+    </script>
+
+
+    @*//BELDE Getirme*@
+
+
+    <script>
+        $("#AltKategoriler").change(function () {
+        debugger;
+                    var sehir = $(this);
+                    var countryId = sehir.val();
+            if (countryId != "") {
+
+                $.ajax({
+                    method: "POST",
+                    url: '@Url.Action("IlceyeGoreBeldeGetir", "AfetEkrani")' + '/' + countryId,
+                    beforeSend: function () {
+                        $("#AltKategoriler2 option").not(":first").remove();
+                    }
+                }).done(function (result) {
+                    console.log(result);
+                    for (var i = 0; i < result.length; i++) {
+                        var city = result[i];
+                        var opt = $("<option></option>");
+                        opt.val(city.BeldeId);
+                        opt.text(city.BeldeAdi);
+                        $("#AltKategoriler2").append(opt);
+                    }
+                });
+                    } else {
+                        $("#AltKategoriler2 option").not(":first").remove();
+                    }
+                });
+    </script>
+
+}
+
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+
+
+
+

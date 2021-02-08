@@ -1,0 +1,12 @@
+C:\Users\tugba\source\repos\AfetEkrani\AfetEkrani.Model\bin\Debug\AfetEkrani.Model.dll
+C:\Users\tugba\source\repos\AfetEkrani\AfetEkrani.Model\bin\Debug\AfetEkrani.Model.pdb
+C:\Users\tugba\source\repos\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.csprojAssemblyReference.cache
+C:\Users\tugba\source\repos\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.csproj.CoreCompileInputs.cache
+C:\Users\tugba\source\repos\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.dll
+C:\Users\tugba\source\repos\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.pdb
+C:\Users\tugba\Desktop\AfetEkrani\AfetEkrani.Model\bin\Debug\AfetEkrani.Model.dll
+C:\Users\tugba\Desktop\AfetEkrani\AfetEkrani.Model\bin\Debug\AfetEkrani.Model.pdb
+C:\Users\tugba\Desktop\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.csprojAssemblyReference.cache
+C:\Users\tugba\Desktop\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.csproj.CoreCompileInputs.cache
+C:\Users\tugba\Desktop\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.dll
+C:\Users\tugba\Desktop\AfetEkrani\AfetEkrani.Model\obj\Debug\AfetEkrani.Model.pdb
